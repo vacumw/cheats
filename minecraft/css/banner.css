@@ -1,0 +1,28 @@
+/* Стили для фиксированных баннеров */
+.fixed-banner {
+  position: fixed;
+  top: 350px; /* Расположение от верхнего края */
+  right: 65px;
+  width: 200px; /* Ширина баннера */
+  height: 200px; /* Высота баннера */
+  background-color: #f8f9fa; /* Цвет фона баннера */
+  border: 1px solid #ddd; /* Рамка баннера */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Тень баннера */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  z-index: 9999; /* Поверх остальных элементов */
+}
+
+.fixed-banner p {
+  margin: 0;
+  font-size: 14px;
+  color: #333;
+  text-align: center;
+}
+
+.banner-img {
+  display: none; /* Скрываем, если нет изображения */
+}

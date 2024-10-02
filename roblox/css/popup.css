@@ -1,0 +1,147 @@
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.popup.active {
+  display: flex;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.popup-main {
+  position: relative;
+  background: #fff;
+  border-radius: 12px;
+  max-width: 800px;
+  padding: 20px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  z-index: 2;
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+}
+
+.popup.active .popup-main {
+  transform: scale(1);
+}
+
+.popup-header {
+  position: relative;
+  overflow: hidden;
+}
+
+.popup-header img {
+  display: none;
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.popup-header img.active {
+  display: block;
+  opacity: 1;
+}
+
+.popup-header .prev,
+.popup-header .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 18px;
+  border-radius: 5px;
+}
+
+.popup-header .prev {
+  left: 10px;
+}
+
+.popup-header .next {
+  right: 10px;
+}
+
+.popup-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.popup-text {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+}
+
+.actions {
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.actions a {
+  display: inline-block;
+  padding: 9px 20px;
+  background: #ccc;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.actions a:hover {
+  background: #aaa;
+}
+
+.actions .video {
+  background: #a72828;
+}
+
+.actions .video:hover {
+  background: #5a1616;
+}
+
+.actions .notvideo {
+  background: #5a1616;
+  cursor: not-allowed;
+}
+
+.actions .notvideo:hover {
+  background: #5a1616;
+  cursor: not-allowed;
+}
+
+.actions .download {
+  background: #28a745;
+}
+
+.actions .download:hover {
+  background: #165824;
+}

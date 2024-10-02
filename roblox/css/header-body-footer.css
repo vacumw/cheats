@@ -1,0 +1,393 @@
+/* IMPORTS AND GLOBAL STYLES */
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap");
+
+body {
+  background-color: black;
+  color: #333;
+  font-family: "Mulish", sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Страница занимает всю высоту окна */
+  margin: 0;
+}
+
+/* BACKGROUND ANIMATION */
+.background {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: -1; /* Размещает анимацию на заднем плане */
+  overflow: hidden;
+}
+
+.square {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+  animation: move 120s linear infinite;
+}
+
+@keyframes move {
+  0% {
+    transform: translate(var(--start-x), var(--start-y));
+  }
+  100% {
+    transform: translate(var(--end-x), var(--end-y));
+  }
+}
+
+/* HEADER STYLES */
+header {
+  background-color: #030303;
+  color: #000000;
+  padding: 10px 0; /* Уменьшенная высота заголовка */
+  box-shadow: 0 0px 2px rgba(0, 0, 0, 0.418);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.logo {
+  font-size: 22px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #474747;
+  letter-spacing: 0.5px;
+}
+
+/* NAVIGATION STYLES */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+
+.nav-button {
+  text-decoration: none;
+  color: #474747;
+  font-weight: 700; /* Сделано жирнее */
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.nav-button:hover {
+  color: #ff4a4a; /* Цвет текста при наведении */
+}
+
+.social-icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  transition: transform 0.3s ease;
+  filter: grayscale(100%); /* Изначально иконки серые */
+}
+
+.nav-button:hover .social-icon {
+  transform: scale(1.1); /* Увеличение иконки при наведении */
+  filter: grayscale(0); /* Цвет иконки при наведении */
+}
+
+.nav-button:active {
+  transform: scale(0.95);
+}
+
+/* MAIN CONTENT */
+main {
+  flex-grow: 1; /* Заставляет основной контент занимать всё оставшееся пространство */
+}
+
+/* FOOTER STYLES */
+footer {
+  background-color: #CDCDCD;
+  padding: 10px 0;
+  text-align: center;
+  width: 100%;
+  border-top: 1px solid #ddd;
+}
+
+footer p {
+  margin: 0;
+  color: #030303;
+  font-size: 14px;
+}
+
+/* PRODUCTS CONTAINER */
+.products {
+  display: flex;
+  flex-wrap: wrap; /* Разрешить перенос элементов на следующую строку */
+  justify-content: flex-start;
+  padding: 20px;
+  gap: 20px; /* Пробелы между продуктами */
+  box-sizing: border-box; /* Учитывать padding в ширине контейнера */
+  max-width: 1200px; /* Максимальная ширина контейнера */
+  margin: auto; /* Центрирование контейнера по горизонтали */
+}
+
+/* PRODUCT STYLES */
+.product {
+  background-color: #CDCDCD;
+  border: 1px solid rgb(210, 210, 210);
+  border-radius: 10px;
+  width: calc(25% - 20px); /* Ширина продукта с учетом отступов */
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.5s ease;
+  position: relative;
+  opacity: 0; /* Начальное состояние невидимости */
+  transform: translateY(20px); /* Начальное состояние смещения вниз */
+  animation: fadeInUp 0.6s ease forwards; /* Анимация появления */
+}
+
+/* EFFECTS ON HOVER */
+.product:hover {
+  transform: scale(1.05); /* Увеличение продукта при наведении */
+  box-shadow: 0 4px 100px rgba(0, 0, 0, 0.2);
+}
+
+.product img {
+  width: 100%;
+  border-bottom: 1px solid rgb(210, 210, 210);
+  position: relative;
+}
+
+.product .product-info {
+  padding: 15px;
+  text-align: center;
+}
+
+.product .product-info h2 {
+  font-size: 25px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+.product .product-info p {
+  margin: 5px 0;
+}
+
+/* PRODUCT TAG STYLES */
+.product .product-type,
+.product .product-prem {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(255, 0, 0, 0.3);
+  color: #fff;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  border-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 10px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.product .product-prem {
+  background-color: rgba(204, 156, 0, 0.548);
+}
+
+/* PNG ICON STYLES */
+.png-icon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.product:hover .png-icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* TOOLTIP STYLES */
+.tooltip {
+  display: none;
+  position: absolute;
+  top: 5px;
+  right: 40px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+  z-index: 10;
+}
+
+.png-icon:hover + .tooltip {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+/* NO RESULTS STYLES */
+#no-results {
+  position: fixed; /* Фиксированное положение на экране */
+  top: 50%; /* Вертикальное центрирование */
+  left: 50%; /* Горизонтальное центрирование */
+  transform: translate(-50%, -50%); /* Смещение для точного центрирования */
+  font-size: 24px; /* Размер текста */
+  text-align: center; /* Выравнивание текста по центру */
+  color: #333; /* Цвет текста */
+  opacity: 0; /* Изначально скрыт */
+  animation: fadeIn 0.5s ease-in-out forwards; /* Анимация плавного появления */
+}
+
+/* ANIMATION KEYFRAMES */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* SEARCH CONTAINER STYLES */
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
+  gap: 20px;
+}
+
+.search-input,
+.dropdown-btn {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.search-input:focus,
+.dropdown-btn:hover {
+  border-color: #ff6347;
+  box-shadow: 0 0 10px rgba(255, 99, 71, 0.5);
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-btn {
+  cursor: pointer;
+  background-color: white;
+  width: 200px;
+  text-align: left;
+}
+
+/* DROPDOWN STYLES */
+.dropdown-content {
+  display: block; /* Оставляем блочное отображение для анимации */
+  position: absolute;
+  background-color: white;
+  min-width: 200px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 5px;
+  border: 2px solid #ddd;
+  overflow: hidden;
+  max-height: 0; /* Начальное состояние высоты для анимации */
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+  opacity: 0; /* Начальное состояние для непрозрачности */
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+/* DROPDOWN HOVER EFFECT */
+.dropdown:hover .dropdown-content {
+  max-height: 500px; /* Максимальная высота для анимации */
+  opacity: 1; /* Конечное состояние для непрозрачности */
+}
+
+/* RESPONSIVE STYLES */
+@media (max-width: 1200px) {
+  .product {
+    width: calc(33.33% - 20px); /* 3 колонки для средних экранов */
+  }
+
+  .header-container {
+    flex-direction: column; /* Переключение на вертикальное выравнивание */
+    align-items: flex-start; /* Выравнивание элементов по началу */
+  }
+}
+
+@media (max-width: 800px) {
+  .product {
+    width: calc(50% - 20px); /* 2 колонки для малых экранов */
+  }
+
+  .header-container {
+    width: 100%; /* Полная ширина для заголовка */
+  }
+
+  .nav-links {
+    flex-direction: column; /* Вертикальное размещение ссылок */
+  }
+
+  .search-container {
+    flex-direction: column; /* Вертикальное размещение элементов поиска */
+  }
+}
+
+@media (max-width: 600px) {
+  .product {
+    width: 100%; /* Одна колонка для очень маленьких экранов */
+  }
+
+  .header-container {
+    padding: 0 10px; /* Уменьшение отступов */
+  }
+
+  .nav-button {
+    font-size: 14px; /* Уменьшение размера шрифта */
+  }
+}
